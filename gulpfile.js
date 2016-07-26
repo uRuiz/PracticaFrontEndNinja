@@ -14,10 +14,13 @@ var cssnano = require('cssnano');
 var imagemin = require('gulp-imagemin');
 var spritesmith = require('gulp.spritesmith');
 
+
 // variables de patrones de archivos
+
 var jsFiles = ["src/js/*.js", "src/js/**/*.js"];
 var uploadedImages = ["uploads/*.png", "uploads/*.jpg", "uploads/*.gif", "uploads/*.svg"];
 var spriteDir = ["src/img/sprites/*"];
+
 
 // definimos tarea por defecto
 gulp.task("default", ["concat-js", "spritesheet", "compile-sass"], function(){

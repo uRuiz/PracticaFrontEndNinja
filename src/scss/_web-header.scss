@@ -10,13 +10,13 @@ $web-header-color: $color-white;
 	position: fixed;
 	width: 100%;
 	padding: 15px 0px;
-	background: fade-out($web-header-background, 0.5);
+	background: fade-out($web-header-background, 0.2);
 	color: $web-header-color;
 	text-align: center;
 	text-transform: uppercase;
 	.web-title {
 		font-size: $font-size-base + 5px;
-		text-shadow: 2px 2px 0px darken($web-header-background, 20%);
+		text-shadow: 2px 2px 0px darken($web-header-color, 50%);
 	}
 	.add-icon {
 		float: right;

@@ -1,0 +1,47 @@
+// Styles
+.articles-list{
+	@include if-is-tablet {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	.web-article{
+		@extend .clearfix;
+		border-bottom: 1px solid $color-bc;
+		@include if-is-tablet {
+			box-sizing: border-box;
+			width: 33%;
+			padding: 10px;
+		}
+
+		.article-img{
+			width: 80px;
+			float: left;
+			margin-right: 15px;
+		}
+
+		.article-title{
+			margin-top: 10px;
+			font-weight: bold;
+		}
+
+		.article-introduction, .article-description{
+			display: block;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			height: 15px;
+			padding-right: 20px;
+		}
+		
+		.article-date{
+
+		}
+		.favourite-button{
+
+		}
+		.comments-count{
+
+		}
+	}
+}
