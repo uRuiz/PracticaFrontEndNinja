@@ -1,47 +1,89 @@
 // Styles
 .articles-list{
+	padding: 0px 20px;
 	@include if-is-tablet {
+		display: flex;
+		flex-wrap: wrap;			
+	}
+
+	@include if-is-desktop {
 		display: flex;
 		flex-wrap: wrap;
 	}
-	
-	.web-article{
+
+	.web-article {
 		@extend .clearfix;
-		border-bottom: 1px solid $color-bc;
+		border-bottom: 1px solid $color-bc;		
 		@include if-is-tablet {
 			box-sizing: border-box;
-			width: 33%;
-			padding: 10px;
+			text-align: center;
+			width: 50%; 
+			padding: 10px;			
+		}
+		@include if-is-desktop {
+			box-sizing: border-box;
+			text-align: center;
+			width: 33%; 
+			padding: 10px;	
 		}
 
-		.article-img{
-			width: 80px;
-			float: left;
-			margin-right: 15px;
+		.article-author-info {
+			.author-img {
+				padding: 10px; 
+				margin-right: 15px;
+				border-radius: 50px;
+				width: 40px;
+				height: 40px;
+				float: left;
+			}
+			.author-name {
+				margin-top: 15px;
+				color: $color-gamebookers-blue;
+				font-size: $font-size-h4;			
+			}
 		}
 
-		.article-title{
+		.article-img {
+			width: 100%;
+		}
+
+		.article-title {
 			margin-top: 10px;
 			font-weight: bold;
+			font-size: $font-size-h2;	
+		}
+		
+		.article-introduction {
+			margin-top: 10px;
+		}		
+		
+		.article-content {
+			& a {
+				text-decoration: none;
+				color: $color-route-66;
+				cursor: pointer;
+			}	
 		}
 
-		.article-introduction, .article-description{
+		.article-introduction, .article-author-info{
+			@extend .clearfix;
 			display: block;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
-			height: 15px;
-			padding-right: 20px;
 		}
 		
-		.article-date{
+		.social-block {
+			margin: 15px 0px;			
+			.comments-count {
+				vertical-align: text-top;
+			}
 
+			.favourite-button, .comments-count{				
+				padding-left: 10px;
+				display: inline-block;						
+			}
 		}
-		.favourite-button{
-
-		}
-		.comments-count{
-
-		}
+		
 	}
 }

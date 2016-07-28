@@ -1,5 +1,5 @@
 // Variables
-$web-header-background: $color-gamebookers-blue;
+$web-header-background: $color-vitamin-c;
 $web-header-color: $color-white;
 
 // Styles
@@ -13,15 +13,12 @@ $web-header-color: $color-white;
 	background: fade-out($web-header-background, 0.2);
 	color: $web-header-color;
 	text-align: center;
-	text-transform: uppercase;
+	text-transform: uppercase;	
 	.web-title {
 		font-size: $font-size-base + 5px;
 		text-shadow: 2px 2px 0px darken($web-header-color, 50%);
-	}
-	.add-icon {
-		float: right;
-		margin-right: 10px;
-		transition: transform 0.25s;
-		cursor: pointer;
+		@include if-is-tablet {
+			font-size: $font-size-h1;
+		}
 	}
 }

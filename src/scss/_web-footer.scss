@@ -1,0 +1,27 @@
+// Variables
+$web-header-background: $color-vitamin-c;
+$web-header-color: $color-white;
+
+// Styles
+.web-footer {
+	background-color: fade-out($web-header-background, 0.2);
+	width: 100%;
+	padding: 15px 0px;
+	text-align: center;
+	color: $web-header-color;
+    text-transform: uppercase; 
+    font-size: $font-size-base + 5px;
+    text-shadow: 2px 2px 0px darken($web-header-color, 50%);
+}
+
+.scrollup {
+    width:40px;
+    height:40px;
+    opacity:0.3;
+    position:fixed;
+    bottom:50px;
+    right:10px;
+    display:none;
+    text-indent:-9999px;
+    background: url('../../src/img/icon_top.png') no-repeat;	
+}
