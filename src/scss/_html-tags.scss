@@ -1,11 +1,106 @@
 body{
-	background: $body-background-color;
+    background: $body-background-color;
 	color: $main-text-color;
 	font-family: $main-font-family;
 	font-size: $font-size-base;
 	padding-top: 50px;
+    @include if-is-desktop {
+        font-size: $font-size-large;
+    }
 }
 
 img, embed, object, video {
 	max-width: 100%;
+}
+
+form {
+    @extend .clearfix;
+    padding: 10px;    
+    width: calc(100% - 20px);
+    top: 0px;
+    @include if-is-tablet {
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .user-info {
+            float:left;
+            width: calc(50% - 10px);
+            margin: auto 5px;
+        }
+        textarea {
+            width: calc(50% - 10px);
+            float: right;
+        }
+        button {
+            margin: auto;
+            width: 20%;
+            clear: both;
+        }
+    }
+    @include if-is-desktop {
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .user-info {
+            float:left;
+            width: calc(50% - 10px);
+            margin: auto 5px;
+        }
+        textarea {
+            width: calc(50% - 10px);
+            float: right;
+        }
+        button {
+            margin: auto;
+            width: 20%;
+            clear: both;
+        }
+    }
+}
+label, input, button, textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+label {
+    font-size: $font-size-small;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+input {
+    border: 1px solid $color-vitamin-c;
+    margin: 5px 0px 15px 0px;
+    padding: 10px;
+    font-size: $font-size-base;
+    border-radius: 5px;
+    &:focus {
+        outline-color: $color-vitamin-c;
+        background: $color-steady-grey;
+    }
+}
+button {
+    @extend input;
+    background: $color-vitamin-c;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: darken($color-vitamin-c, 50%);
+    transition: all 0.25s;
+    &:hover {
+        background: darken($color-vitamin-c, 10%);
+    }
+    &:active { // button:active
+        background: darken($color-vitamin-c, 20%);
+        color: $color-white;
+    }
+}
+
+textarea {
+	@extend input;
+	resize: none;
+}
+
+*::selection {
+    background: $color-vitamin-c;
 }
