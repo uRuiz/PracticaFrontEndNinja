@@ -13,52 +13,6 @@ img, embed, object, video {
 	max-width: 100%;
 }
 
-form {
-    @extend .clearfix;
-    padding: 10px;    
-    width: calc(100% - 20px);
-    top: 0px;
-    @include if-is-tablet {
-        height: auto;
-        position: relative;
-        flex-direction: row;
-        flex-wrap: wrap;
-        .user-info {
-            float:left;
-            width: calc(50% - 10px);
-            margin: auto 5px;
-        }
-        textarea {
-            width: calc(50% - 10px);
-            float: right;
-        }
-        button {
-            margin: auto;
-            width: 20%;
-            clear: both;
-        }
-    }
-    @include if-is-desktop {
-        height: auto;
-        position: relative;
-        flex-direction: row;
-        flex-wrap: wrap;
-        .user-info {
-            float:left;
-            width: calc(50% - 10px);
-            margin: auto 5px;
-        }
-        textarea {
-            width: calc(50% - 10px);
-            float: right;
-        }
-        button {
-            margin: auto;
-            width: 20%;
-            clear: both;
-        }
-    }
-}
 label, input, button, textarea {
     display: block;
     width: 100%;
