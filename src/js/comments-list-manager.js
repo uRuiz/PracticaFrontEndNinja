@@ -12,6 +12,7 @@ module.exports = {
 			if (($(window).scrollTop() > $(".social-block").offset().top + $(".social-block").outerHeight() - $(window).height()) && (!commentsLoaded)){
 				apiClient.list(function(response) {
 					$('.comments-list').html('');
+					$('.comments-count span').html('');
 					for (var i in response) {
 						var comment = response[i];
 
@@ -26,9 +27,10 @@ module.exports = {
 		                html += '</article>';
 		                $('.comments-list').append(html);
 					}
+					$('.comments-count span').append(parseInt(i) + 1);
 				}, function(response){
 					console.error("ERROR", response);
-				});
+				}); 
 				commentsLoaded = true;
 			}
 

@@ -7,6 +7,7 @@ $('.icon-heart').on('click', function(){
 		console.log("QUITAR");
 		$('.icon-heart img').attr("src", "/src/img/icon-heart.png");
 	}*/	
-	var articleId = $(this).data("id");
+	var articleId = $(this).parents(".web-article").data("id");
+	console.log(articleId);
 	
 });
