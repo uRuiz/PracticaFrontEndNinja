@@ -31,7 +31,7 @@ $('.new-comment-form').on('submit', function(){
         }		
 	}
 
-	if(areatext.val().split(" ").length > 10) {
+	if (areatext.val().split(" ").length > 10) {
 		alert("El número de palabras no puede ser mayor de 120");
 		areatext.focus();
 		return false;

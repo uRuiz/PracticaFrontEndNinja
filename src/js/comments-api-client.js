@@ -14,6 +14,8 @@ module.exports = {
 			url: "/api/comments/",
 			method: "post",
 			data: formData,
+			processData: false,
+			contentType: false,
 			success: successCallback,
 			error: errorCallback
 		});

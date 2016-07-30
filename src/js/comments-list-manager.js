@@ -9,7 +9,7 @@ module.exports = {
 		commentsLoaded = false;
 		// Petición AJAX para cargar la lista de comentarios
 		$(window).scroll(function(){
-			if (($(window).scrollTop() > $(".comments").offset().top + $(".comments").outerHeight() - $(window).height()) && (!commentsLoaded)){
+			if (($(window).scrollTop() > $(".social-block").offset().top + $(".social-block").outerHeight() - $(window).height()) && (!commentsLoaded)){
 				apiClient.list(function(response) {
 					$('.comments-list').html('');
 					for (var i in response) {
