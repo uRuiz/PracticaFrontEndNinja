@@ -1,3 +1,4 @@
+require('./utils');
 require('./form');
-require('./favourite-icon');
-require('./comments-list');
+require('./favourite-icon-events');
+require('./init');

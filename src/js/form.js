@@ -1,8 +1,27 @@
 var $ = require('jquery');
+var apiClient = require('./comments-api-client');
+var commentsListManager = require('./comments-list-manager');
+var inputs = $(".new-comment-form input");
+var areatext = $(".new-comment-form textarea");
+var newCommentsFormButton = $('.new-comment-form button');
 
-$('.new-comment-form button').on('submit', function(){
+
+// beforeSend
+function setLoading(){
+	$(inputs).attr("disabled", true);
+	areatext.attr("disabled", true);
+	newCommentsFormButton.text("Saving comment...").attr("disabled", true);
+}
+
+function unsetLoading() {
+	$(inputs).attr("disabled", false);
+	areatext.attr("disabled", false);
+	newCommentsFormButton.text("Save comment").attr("disabled", false);
+}
+
+
+$('.new-comment-form').on('submit', function(){
 	
-	var inputs = $(".new-comment-form input");
 	for (var i = 0; i < inputs.length; i++) {
 		var input = inputs[i];
 		if (input.checkValidity() == false) {
@@ -10,6 +29,12 @@ $('.new-comment-form button').on('submit', function(){
             input.focus();
             return false;
         }		
+	}
+
+	if(areatext.val().split(" ").length > 10) {
+		alert("El número de palabras no puede ser mayor de 120");
+		areatext.focus();
+		return false;
 	}
 
 	// comentario que quiero crear
@@ -20,30 +45,18 @@ $('.new-comment-form button').on('submit', function(){
 		comentario: $('#comentario').val()
 	};
 
-	// petición AJAX para guardar la información en el servidor
-	$.ajax({
-		url: "/api/comments/",
-		method: "post",
-		data: comment,
-		beforeSend: function(){
-			$(inputs).attr("disabled", true);
-			$("textarea").attr("disabled", true);
-			$('.new-comment-form button').text("Saving comment...").attr("disabled", true);
-		},
-		success: function(response) {
-			console.log("SUCCESS", response);
-			$("form")[0].reset();
-			$("#nombre").focus();
-		},
-		error: function() {
+	setLoading(); // deshabilito el formulario
+
+	apiClient.save(comment, function (response) {
+		$("form")[0].reset();
+		$("#nombre").focus();
+		commentsListManager.load();
+		unsetLoading();
+		}, function() {
 			console.error("ERROR", response);
-		},
-		complete: function() {
-			$(inputs).attr("disabled", false);
-			$("textarea").attr("disabled", false);
-			$('.new-comment-form button').text("Save comment").attr("disabled", false);
+			unsetLoading();
 		}
-	});
+	);
 
 	return false;
 });
