@@ -3,11 +3,17 @@ var $ = require('jquery');
 module.exports = {
 	
 	save: function(comment, successCallback, errorCallback) {
-		// petición AJAX para guardar la información en el servidor
+		
+		var formData = new FormData();
+		formData.append("nombre", comment.nombre);
+		formData.append("apellido", comment.apellido);
+		formData.append("email", comment.email);
+		formData.append("comentario", comment.comentario);
+
 		$.ajax({
 			url: "/api/comments/",
 			method: "post",
-			data: comment,
+			data: formData,
 			success: successCallback,
 			error: errorCallback
 		});
