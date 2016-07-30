@@ -3,7 +3,9 @@ var apiClient = require("./comments-api-client");
 var utils = require("./utils");
 
 module.exports = {
+
 	load: function() {
+
 		commentsLoaded = false;
 		// Petición AJAX para cargar la lista de comentarios
 		$(window).scroll(function(){
@@ -18,8 +20,7 @@ module.exports = {
 						var email = comment.email || "";
 						var comentario = comment.comentario || "";
 
-						var html = '<article class="user-comment" data-id="' + comment.id + '">';
-		                html += '<div class="user-full-name"> ' + utils.escapeHTML(nombre) + ' ' + utils.escapeHTML(apellido) + '</div">';
+						var html = '<div class="user-full-name"> ' + utils.escapeHTML(nombre) + ' ' + utils.escapeHTML(apellido) + '</div">';
 		                html += '<div class="user-email"> ' + utils.escapeHTML(email) + '</div">';
 		                html += '<div class="comentario">' + utils.escapeHTML(comentario) + '</div>';
 		                html += '</article>';
