@@ -1,4 +1,5 @@
 require('./utils');
 require('./form');
-require('./favourite-icon-events');
+require('./favorite-icon-events');
 require('./init');
+require('./date-manager');
