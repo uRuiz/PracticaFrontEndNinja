@@ -56,7 +56,19 @@
 		}
 		
 		.complete-article {
-			margin-top: 10px;			
+			margin-top: 10px;
+			.bold {
+				font-family: bold;
+			}	
+
+			.italica {
+				font-style: italic;
+			}
+
+			& a {
+				color: $color-vitamin-c !important;
+			}	
+
 			@include if-is-tablet {
 				font-size: $font-size-h3;
 			}

@@ -11,8 +11,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
-var imagemin = require('gulp-imagemin');
-var spritesmith = require('gulp.spritesmith');
+
 
 
 // variables de patrones de archivos
@@ -23,7 +22,7 @@ var spriteDir = ["src/img/sprites/*"];
 
 
 // definimos tarea por defecto
-gulp.task("default", ["concat-js", "spritesheet", "compile-sass"], function(){
+gulp.task("default", ["concat-js", "compile-sass"], function(){
 
     // iniciar BrowserSync
     browserSync.init({
@@ -80,24 +79,4 @@ gulp.task("concat-js", function(){
         message: "Concatenated"
     }))
     .pipe(browserSync.stream());
-});
-
-// optimización de imagenes de usuario
-gulp.task("uploaded-images-optimization", function(){
-    gulp.src(uploadedImages)
-    .pipe(imagemin())
-    .pipe(gulp.dest('./uploads/'));
-});
-
-// optimizacion de assets
-gulp.task("spritesheet", function(){
-    var spriteData = gulp.src(spriteDir)
-    .pipe(spritesmith({
-        imgName: 'sprite.png',
-        cssName: '_sprite.scss',
-        imgPath: '../img/sprite.png'
-    }));
-
-    spriteData.img.pipe(buffer()).pipe(imagemin()).pipe(gulp.dest('./dist/img/'));
-    spriteData.css.pipe(gulp.dest('./src/scss/'));
 });
