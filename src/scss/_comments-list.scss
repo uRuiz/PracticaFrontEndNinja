@@ -1,0 +1,26 @@
+.comments-list {
+
+	.user-comment {
+
+		background-color: $color-white;	
+		margin: 15px 30px;
+		padding: 10px;
+		border-radius: 5px;
+		border: 1px solid $color-vitamin-c; 
+
+		.user-full-name {
+			color: $color-gamebookers-blue;
+			float: left;
+		}
+
+		.user-email {
+			float: right;
+		}
+
+		.user-information {
+			@extend .clearfix;
+		}
+	
+	}
+	
+}
