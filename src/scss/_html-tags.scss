@@ -3,7 +3,7 @@ body{
 	color: $main-text-color;
 	font-family: $main-font-family;
 	font-size: $font-size-base;
-	padding-top: 50px;
+	padding-top: 110px;
     @include if-is-desktop {
         font-size: $font-size-large;
     }
@@ -15,7 +15,7 @@ img, embed, object, video {
 
 label, input, button, textarea {
     display: block;
-    width: 100%;
+   // width: 100%;
     box-sizing: border-box;
 }
 label {

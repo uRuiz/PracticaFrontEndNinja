@@ -21,4 +21,8 @@ $web-header-color: $color-white;
 			font-size: $font-size-h1;
 		}
 	}
+	& a {
+		color: $color-white;
+		text-decoration: none;
+	}
 }
