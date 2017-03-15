@@ -5,13 +5,13 @@ var favAPI = require('./favorite-api.js');
 $('.icon-heart').on("click", function() {
     var articleId = $(this).parents("article").data("id");
 
-    if ($('#icono-corazon' + articleId).attr('src') == 'src/img/icon-heart.png') {
+    if ($('#icono-corazon' + articleId).attr('src') == 'dist/img/icon-heart.png') {
         favAPI.save(articleId);
-        $('#icono-corazon' + articleId).attr('src', 'src/img/icon-heart-ok.png');
+        $('#icono-corazon' + articleId).attr('src', 'dist/img/icon-heart-ok.png');
 
     } else {
         favAPI.delete(articleId);
-        $('#icono-corazon' + articleId).attr('src', 'src/img/icon-heart.png');
+        $('#icono-corazon' + articleId).attr('src', 'dist/img/icon-heart.png');
     }
 });
 
@@ -24,7 +24,7 @@ module.exports = {
                 for (z = 0; z < arrayFavs.length; z++) {
                     if ($(articles[i]).data("id") == arrayFavs[z]) {
                         console.log('ll');
-                        $(articles[i], '.social-block', '#icono-corazon' + i).attr('src', 'src/img/icon-heart.png');
+                        $(articles[i], '.social-block', '#icono-corazon' + i).attr('src', 'dist/img/icon-heart.png');
                     }
                 }
             }

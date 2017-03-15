@@ -11,13 +11,14 @@ var sourcemaps = require('gulp-sourcemaps');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
+var imagemin = require('gulp-imagemin');
 var fontAwesome = require('node-font-awesome');
 
 
 // variables de patrones de archivos
 
 var jsFiles = ["src/js/*.js", "src/js/**/*.js"];
-var uploadedImages = ["uploads/*.png", "uploads/*.jpg", "uploads/*.gif", "uploads/*.svg"];
+var uploadedImages = ["src/img/*.png", "src/img/*.jpg", "src/img/*.gif", "src/img/*.svg"];
 var spriteDir = ["src/img/sprites/*"];
 
 // bootstrap scss source and fonts
@@ -76,9 +77,17 @@ gulp.task("concat-js", function() {
         .pipe(browserSync.stream());
 });
 
+// optimización de imagenes de usuario
+gulp.task("optimization", function() {
+    gulp.src(uploadedImages)
+        .pipe(imagemin())
+        .pipe(gulp.dest('./dist/img/'));
+});
+
+
 
 // definimos tarea por defecto
-gulp.task("default", ["concat-js", "compile-sass", "fonts"], function() {
+gulp.task("default", ["concat-js", "compile-sass", "fonts", "optimization"], function() {
 
     // iniciar BrowserSync
     browserSync.init({
