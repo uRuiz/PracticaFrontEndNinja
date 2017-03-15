@@ -106,6 +106,6 @@ gulp.task("default", ["concat-js", "compile-sass", "fonts", "optimization"], fun
     gulp.watch(jsFiles, ["concat-js"]);
 
     // observamos cambios en los spritesheet para regenerarlo automáticamente
-    gulp.watch(spriteDir, ["spritesheet"]);
+    gulp.watch(uploadedImages, ["optimization"]);
 
 });

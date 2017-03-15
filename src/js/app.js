@@ -1,3 +1,4 @@
+require('./bootstrapInit');
 require('./utils');
 require('./form');
 require('./favorite-icon-events');
