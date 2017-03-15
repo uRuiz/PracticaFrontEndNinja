@@ -1,4 +1,3 @@
-require('./bootstrap');
 require('./utils');
 require('./form');
 require('./favorite-icon-events');
